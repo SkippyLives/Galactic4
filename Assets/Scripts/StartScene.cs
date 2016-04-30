@@ -4,13 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class StartScene : MonoBehaviour {
 
-    public void StartSinglePlayer()
+    public void StartStandalone()
     {
-        SceneManager.LoadScene("Game");
+        PlayerPrefs.SetInt("GAMETYPE", 1);
+        SceneManager.LoadScene("Standalone");
     }
     public void StartMultiplayer()
     {
+        PlayerPrefs.SetInt("GAMETYPE", 3);
         SceneManager.LoadScene("NetworkManager");
+    }
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Game");
     }
 	// Use this for initialization
 	void Start () {
